@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: postsapi
+    runtime: dotnet
+    buildCommand: dotnet build
+    startCommand: dotnet PostsAPI.dll
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+    region: oregon
+    plan: free
