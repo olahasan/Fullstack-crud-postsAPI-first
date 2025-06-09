@@ -1,6 +1,8 @@
-﻿using Microsoft.Data.SqlClient;
-using StudentAPIDataAccessLayer;
+﻿//using Microsoft.Extensions.Configuration;
+using Microsoft.Data.SqlClient;
 using System.Data;
+using StudentAPIDataAccessLayer;
+using Microsoft.IdentityModel.Protocols;
 
 namespace StudentAPIDataAccessLayer
 {
@@ -25,7 +27,12 @@ namespace StudentAPIDataAccessLayer
 
     public class PostsDataAccess
     {
-        static string _connectionString = "Server=localhost;Database=CrudApp_Kimz;User Id=sa;Password=sa123456;Encrypt=False;TrustServerCertificate=True;Connection Timeout=30;";
+        private static readonly string _connectionString = "Server=.;Database=CrudApp_Kimz;trusted_connection=true;TrustServerCertificate=True;";
+        //public PostsDataAccess(IConfiguration configuration)
+        //{
+        //  _connectionString = configuration.GetConnectionString("DefaultConnection");
+        //}
+        //static string _connectionString = "Server=localhost;Database=CrudApp_Kimz;User Id=sa;Password=sa123456;Encrypt=False;TrustServerCertificate=True;Connection Timeout=30;";
 
         public static List<PostDTO> GetAllPosts()
         {
